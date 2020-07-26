@@ -19,7 +19,7 @@
 ANALYTICS_FILE=${ANALYTICS_FILE:-"analytics.json"}
 WORKING_DIR=${WORKING_DIR:-"./data"}
 RESULTS_DIR=${RESULTS_DIR:-"./results"}
-OSMQATILES_SOURCE=${OSMQATILES_SOURCE:-"https://s3.amazonaws.com/mapbox/osm-qa-tiles-production/latest.planet.mbtiles.gz"}
+OSMQATILES_SOURCE=${OSMQATILES_SOURCE:-"https://hot-qa-tiles.s3.amazonaws.com/latest.country/india.mbtiles.gz"}
 
 # clean up
 trap cleanup EXIT
