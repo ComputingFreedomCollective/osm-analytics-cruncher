@@ -20,20 +20,21 @@ ANALYTICS_FILE=${ANALYTICS_FILE:-"analytics.json"}
 WORKING_DIR=${WORKING_DIR:-"./data"}
 RESULTS_DIR=${RESULTS_DIR:-"./results"}
 OSMQATILES_SOURCE=${OSMQATILES_SOURCE:-"http://mapathon.computingfreedomcollective.com/qa-tiles/kerala-latest.mbtiles"}
-
+OSMQATILES_SOURCE="http://tile.icfoss.org/kerala-latest.gz"
+TILENAME="kerala-latest.mbtiles"
 # clean up
 trap cleanup EXIT
 function cleanup {
-  rm -rf $WORKING_DIR/kerala-latest.mbtiles $WORKING_DIR/cruncher/
+  rm -rf $WORKING_DIR/$TILENAME $WORKING_DIR/cruncher/
 }
 
 mkdir -p $WORKING_DIR/cruncher/
 
 # download latest planet from osm-qa-tiles
-wget $OSMQATILES_SOURCE
+curl $OSMQATILES_SOURCE --silent | gzip -d > $WORKING_DIR/$TILENAME
 
 # crunch osm-analytics data
-./crunch.sh $WORKING_DIR/kerala-latest.mbtiles $ANALYTICS_FILE $WORKING_DIR/cruncher/
+./crunch.sh $WORKING_DIR/$TILENAME $ANALYTICS_FILE $WORKING_DIR/cruncher/
 for f in $WORKING_DIR/cruncher/*.mbtiles; do
   mv $f $RESULTS_DIR/$(basename $f).tmp
   rm $RESULTS_DIR/$(basename $f) -f
