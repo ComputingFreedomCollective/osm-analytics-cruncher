@@ -11,7 +11,7 @@ case "$1" in
     server)
         echo "Running tile server"
         docker build -t osm-analytics-cruncher .
-        exec docker run -i -t -p 7778:7778 -v $(pwd)/results:/opt/osm-cruncher/app/results osm-analytics-cruncher server $2
+        exec docker run -i -t -p 7779:7779 -v $(pwd)/results:/opt/osm-cruncher/app/results osm-analytics-cruncher server $2
         ;;
     *)
         exec "$@"

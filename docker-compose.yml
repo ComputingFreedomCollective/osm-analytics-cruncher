@@ -4,6 +4,9 @@ services:
     build: .
     command: gen
     ports:
-      - 7778:7778
+      - 7779:7779
+    environment:
+     - OSMQATILES_SOURCE=http://mapathon.computingfreedomcollective.com/qa-tiles/kerala-latest.mbtiles.gz
+     - RESULTS_DIR=/opt/osm-cruncher/app/results
     volumes:
      - ./results:/opt/osm-cruncher/app/results
