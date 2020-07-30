@@ -6,9 +6,9 @@ const tilelive = require('tilelive');
 const queue = require('queue-async');
 require('mbtiles').registerProtocols(tilelive);
 console.log('Opg !!! ', `${process.argv.length}`)
-const mbtilesDir = process.argv.length >= 3 ? process.argv[2] : "./results";
-const analyticsFile = process.argv.length >= 4 ? process.argv[3] : "./analytics.json";
-const port = process.argv.length >= 5 ? +process.argv[4] : 7779;
+const mbtilesDir = "./results"; // process.argv.length >= 3 ? process.argv[2] : "./results";
+const analyticsFile = "./analytics.json"; // process.argv.length >= 4 ? process.argv[3] : "./analytics.json";
+const port = 7779; // process.argv.length >= 5 ? +process.argv[4] : 7779;
 
 if (mbtilesDir === null) {
     console.error('Error: mbtiles directory not specified');

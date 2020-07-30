@@ -2,7 +2,7 @@ version: '2'
 services:
   cruncher:
     build: .
-    command: gen
+    command: server app/analytics.json
     ports:
       - 7779:7779
     environment:
