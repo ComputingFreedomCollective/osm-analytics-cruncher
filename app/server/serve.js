@@ -5,7 +5,6 @@ const app = express();
 const tilelive = require('tilelive');
 const queue = require('queue-async');
 require('mbtiles').registerProtocols(tilelive);
-console.log('Opg !!! ', `${process.argv.length}`)
 const mbtilesDir = "./results"; // process.argv.length >= 3 ? process.argv[2] : "./results";
 const analyticsFile = "./analytics.json"; // process.argv.length >= 4 ? process.argv[3] : "./analytics.json";
 const port = 7779; // process.argv.length >= 5 ? +process.argv[4] : 7779;

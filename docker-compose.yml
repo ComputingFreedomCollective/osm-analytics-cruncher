@@ -2,11 +2,12 @@ version: '2'
 services:
   cruncher:
     build: .
-    command: server app/analytics.json
+    image: osm-analytics-cruncher
+    command: server
     ports:
       - 7779:7779
-    environment:
-     - OSMQATILES_SOURCE=http://mapathon.computingfreedomcollective.com/qa-tiles/kerala-latest.mbtiles.gz
-     - RESULTS_DIR=/opt/osm-cruncher/app/results
+#    environment:
+#     - OSMQATILES_SOURCE=http://mapathon.computingfreedomcollective.com/qa-tiles/kerala-latest.mbtiles.gz
+#     - RESULTS_DIR=/opt/osm-cruncher/app/results
     volumes:
-     - ./results:/opt/osm-cruncher/app/results
+     - ./results/:/opt/osm-cruncher/app/results
