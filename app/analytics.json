@@ -187,12 +187,45 @@
     {
       "name": "quarries",
       "title": "Quarries",
-      "description": "Quarry with an landuse=quarry tag",
+      "description": "Quarry with a landuse=quarry tag",
       "experienceField": "objects",
       "filter": {
         "tagKey": "landuse",
         "tagValue": "quarry",
         "geometry": ["Polygon", "Point", "MultiPolygon"]
+      },
+      "processing": [
+        "geometry:calculate_centroid"
+      ],
+      "render": {
+        "type": "circle",
+        "scaleBasis": 2.5,
+        "scaleFactor": 50000,
+        "defaultStyle": {
+          "raw": {
+            "circle-color": "#f89ab7"
+          },
+          "raw-highlight": {
+            "circle-color": "#5CBAD8"
+          },
+          "aggregated": {
+            "fill-color": "#f89ab7"
+          },
+          "aggregated-highlight": {
+            "fill-color": "#5CBAD8"
+          }
+        }
+      }
+    },
+    {
+      "name": "ponds",
+      "title": "Ponds",
+      "description": "Pond with an water=pond tag",
+      "experienceField": "objects",
+      "filter": {
+        "tagKey": "water",
+        "tagValue": "pond",
+        "geometry": ["Polygon", "MultiPolygon"]
       },
       "processing": [
         "geometry:calculate_centroid"
